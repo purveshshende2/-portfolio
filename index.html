@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Purvesh Shende — DevOps &amp; AI Engineer</title>
+<meta name="description" content="Purvesh Shende — DevOps Engineer & AI Engineer. Automating infrastructure, shipping intelligent systems.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --bg-soft: #111111;
+    --border: #222222;
+    --text: #e8e8e8;
+    --muted: #888888;
+    --accent: #4ade80;
+    --accent-dim: rgba(74, 222, 128, 0.12);
+  }
+
+  [data-theme="light"] {
+    --bg: #fafafa;
+    --bg-soft: #f0f0f0;
+    --border: #dddddd;
+    --text: #111111;
+    --muted: #777777;
+    --accent: #16a34a;
+    --accent-dim: rgba(22, 163, 74, 0.10);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+    line-height: 1.7;
+    font-size: 15px;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  ::selection { background: var(--accent); color: var(--bg); }
+
+  /* ---------- particles ---------- */
+  #particles {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+  }
+  main, footer { position: relative; }
+
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---------- top bar ---------- */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    font-size: 13px;
+  }
+
+  .path { color: var(--muted); }
+  .path b { color: var(--text); font-weight: normal; }
+  .path .sep { margin: 0 6px; opacity: 0.5; }
+
+  #theme-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-family: inherit;
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  #theme-btn:hover { color: var(--text); border-color: var(--muted); }
+
+  /* ---------- hero ---------- */
+  .hero { padding: 60px 0 56px; }
+
+  .sticker {
+    display: block;
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-drag: none;
+    animation: bob 5s ease-in-out infinite;
+  }
+  @keyframes bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sticker { animation: none; }
+  }
+
+  .sticker-wrap { position: relative; display: inline-block; }
+
+  .callout {
+    position: absolute;
+    bottom: calc(100% + 14px);
+    left: 8px;
+    background: var(--accent);
+    color: var(--bg);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 7px 14px;
+    border-radius: 8px;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(8px) scale(0.85);
+    transition: opacity 0.18s ease, transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+    pointer-events: none;
+    z-index: 30;
+  }
+  .callout.show { opacity: 1; transform: translateY(0) scale(1); }
+  .callout::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 22px;
+    border: 7px solid transparent;
+    border-top-color: var(--accent);
+  }
+
+  /* ---------- copy toast ---------- */
+  #copy-toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--accent);
+    color: var(--bg);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 999px;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.2s, transform 0.2s;
+    pointer-events: none;
+    z-index: 50;
+  }
+  #copy-toast.show { opacity: 1; transform: translateY(0); }
+
+  .hero .label {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 18px;
+  }
+
+  h1.name {
+    font-size: clamp(34px, 6.5vw, 54px);
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    display: flex;
+    align-items: baseline;
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 0.55em;
+    height: 1em;
+    background: var(--accent);
+    margin-left: 8px;
+    animation: blink 1s steps(1) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  .tagline {
+    font-size: clamp(16px, 2.6vw, 19px);
+    margin-top: 12px;
+    max-width: 560px;
+  }
+
+  .tagline em { color: var(--accent); font-style: normal; }
+
+  .sub {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 8px;
+    max-width: 540px;
+  }
+  .sub::before { content: "// "; opacity: 0.6; }
+
+  .cta-row { display: flex; gap: 12px; margin-top: 22px; flex-wrap: wrap; }
+
+  .tbtn {
+    font-family: inherit;
+    font-size: 13px;
+    text-decoration: none;
+    color: var(--text);
+    border: 1px solid var(--border);
+    background: var(--bg-soft);
+    padding: 9px 16px;
+    border-radius: 6px;
+    transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+  }
+  .tbtn .dollar { color: var(--accent); }
+  .tbtn::after { content: "▋"; color: var(--accent); opacity: 0; margin-left: -2px; }
+  .tbtn:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .tbtn:hover::after { opacity: 1; animation: blink 1s steps(1) infinite; }
+
+  /* ---------- sections ---------- */
+  section { padding: 64px 0; border-top: 1px solid var(--border); }
+
+  .sec-label {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .sec-label::before { content: "# "; }
+
+  h2 {
+    font-size: clamp(22px, 4vw, 30px);
+    letter-spacing: -0.5px;
+    font-weight: 700;
+    margin-bottom: 28px;
+    max-width: 600px;
+  }
+
+  /* ---------- about ---------- */
+  .about p { color: var(--muted); max-width: 640px; margin-bottom: 14px; }
+  .about p strong { color: var(--text); font-weight: 600; }
+  .about .hl { color: var(--accent); }
+
+  /* ---------- stack ---------- */
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 22px;
+    background: var(--bg-soft);
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+  .card h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card h3::before { content: ">"; color: var(--accent); }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+
+  .chip {
+    font-size: 12px;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 3px 10px;
+    border-radius: 999px;
+    transition: all 0.15s;
+  }
+  .chip:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* ---------- projects ---------- */
+  .project {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+    margin-bottom: 16px;
+    background: var(--bg-soft);
+    transition: border-color 0.2s;
+  }
+  .project:hover { border-color: var(--accent); }
+
+  .proj-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .project h3 { font-size: 16px; font-weight: 600; }
+  .project h3 span { color: var(--muted); font-weight: 400; }
+
+  .diff {
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .add { color: var(--accent); }
+  .del { color: #f87171; }
+
+  .project p { color: var(--muted); font-size: 14px; margin: 10px 0 14px; max-width: 620px; }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
+  /* ---------- numbers / uptime ---------- */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px;
+  }
+
+  .stat { text-align: left; padding: 18px 20px; border-left: 2px solid var(--accent); background: var(--accent-dim); border-radius: 0 8px 8px 0; }
+  .stat .num { font-size: 30px; font-weight: 700; letter-spacing: -1px; }
+  .stat .cap { color: var(--muted); font-size: 12px; margin-top: 2px; }
+
+  /* ---------- contact ---------- */
+  .term {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--bg-soft);
+  }
+
+  .term-bar {
+    display: flex;
+    gap: 6px;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .term-bar i { width: 10px; height: 10px; border-radius: 50%; background: var(--border); display: block; }
+
+  .term-body { padding: 20px 22px; font-size: 14px; }
+
+  .term-body .row { margin-bottom: 8px; word-break: break-all; }
+  .prompt-user { color: var(--accent); }
+  .prompt-path { color: var(--muted); }
+  .term-body a { color: var(--text); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+  .term-body a:hover { color: var(--accent); }
+
+  /* ---------- footer ---------- */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 48px 0 36px;
+    font-size: 13px;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  .foot-sticker {
+    display: block;
+    width: 110px;
+    height: auto;
+    margin: 0 auto 20px;
+  }
+
+  .foot-tag {
+    font-size: 14px;
+    color: var(--text);
+    margin-bottom: 22px;
+  }
+  .foot-tag::before { content: "// "; opacity: 0.5; }
+
+  .foot-prompt { color: var(--text); margin-bottom: 10px; }
+  .foot-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .foot-links a:hover { color: var(--accent); }
+  .foot-links.pulse a { color: var(--accent); }
+  .foot-links .dot { margin: 0 8px; opacity: 0.4; }
+
+  @media (max-width: 560px) {
+    .hero { padding: 28px 0 44px; }
+    .sticker { width: 96px; margin-bottom: 14px; }
+    section { padding: 48px 0; }
+  }
+</style>
+</head>
+<body>
+
+<canvas id="particles" aria-hidden="true"></canvas>
+<div id="copy-toast" role="status">copied to clipboard ✓</div>
+
+<header>
+  <div class="wrap topbar">
+    <div class="path">~/<b>purvesh</b><span class="sep">—</span>portfolio.md</div>
+    <button id="theme-btn" onclick="toggleTheme()">☀ light mode</button>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- hero -->
+  <div class="hero">
+    <div class="sticker-wrap">
+      <img class="sticker" src="assets/sticker.png" alt="Purvesh Shende sticker" width="300" height="284">
+      <div class="callout" id="callout" role="status" aria-live="polite"></div>
+    </div>
+    <div class="label">$ whoami</div>
+    <h1 class="name">Purvesh Shende<span class="cursor"></span></h1>
+    <p class="tagline">DevOps Engineer × <em>AI Engineer</em>.<br>I automate everything — then teach it to think.</p>
+    <p class="sub">pipelines, clusters &amp; models. shipped from a terminal near you.</p>
+    <div class="cta-row">
+      <a class="tbtn" href="mailto:hello@purveshshende.dev"><span class="dollar">$</span>contact --now</a>
+      <a class="tbtn" href="#work"><span class="dollar">$</span>cat work.md</a>
+      <a class="tbtn" href="https://github.com/purveshshende" target="_blank" rel="noopener"><span class="dollar">$</span>open github</a>
+      <a class="tbtn" href="#" target="_blank" rel="noopener"><span class="dollar">$</span>get resume.pdf</a>
+    </div>
+  </div>
+
+  <!-- about -->
+  <section id="about" class="about">
+    <div class="sec-label">whoami</div>
+    <h2>Machines deploy themselves. I make sure they do it right.</h2>
+    <p><strong>DevOps side:</strong> I build CI/CD pipelines, tame Kubernetes clusters, codify infrastructure with Terraform, and keep observability honest. If it can be automated, it will be.</p>
+    <p><strong>AI side:</strong> I take models out of notebooks and into production — LLM pipelines, RAG systems, fine-tuning workflows, and GPU infrastructure that doesn't melt.</p>
+    <p>The overlap is where I live: <span class="hl">MLOps</span>, model serving at scale, and infra for teams that ship ML fast without breaking prod.</p>
+  </section>
+
+  <!-- stack -->
+  <section id="stack">
+    <div class="sec-label">the_stack</div>
+    <h2>Tools I reach for first.</h2>
+    <div class="stack-grid">
+      <div class="card">
+        <h3>devops &amp; cloud</h3>
+        <div class="chips">
+          <span class="chip">kubernetes</span><span class="chip">docker</span><span class="chip">terraform</span>
+          <span class="chip">aws</span><span class="chip">gcp</span><span class="chip">ansible</span>
+          <span class="chip">linux</span><span class="chip">helm</span><span class="chip">nginx</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>cicd &amp; reliability</h3>
+        <div class="chips">
+          <span class="chip">github actions</span><span class="chip">gitlab ci</span><span class="chip">argocd</span>
+          <span class="chip">prometheus</span><span class="chip">grafana</span><span class="chip">loki</span>
+          <span class="chip">istio</span><span class="chip">vault</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>ai &amp; ml</h3>
+        <div class="chips">
+          <span class="chip">python</span><span class="chip">pytorch</span><span class="chip">langchain</span>
+          <span class="chip">llama-index</span><span class="chip">openai api</span><span class="chip">huggingface</span>
+          <span class="chip">vllm</span><span class="chip">ray</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>mlops &amp; data</h3>
+        <div class="chips">
+          <span class="chip">mlflow</span><span class="chip">kubeflow</span><span class="chip">airflow</span>
+          <span class="chip">postgres</span><span class="chip">redis</span><span class="chip">kafka</span>
+          <span class="chip">qdrant</span><span class="chip">weaviate</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- projects -->
+  <section id="work">
+    <div class="sec-label">selected_work</div>
+    <h2>Things I've built and broken (then fixed).</h2>
+
+    <article class="project">
+      <div class="proj-head">
+        <h3>gitops-platform <span>/ multi-cluster delivery</span></h3>
+        <span class="diff"><span class="del">-1200 manual deploys</span> <span class="add">+1 push to prod</span></span>
+      </div>
+      <p>Full GitOps setup with ArgoCD across 3 EKS clusters. Progressive delivery via Argo Rollouts, secrets through Vault, drift detection on every merge. Deploys went from hours to minutes.</p>
+      <div class="tags"><span class="chip">argocd</span><span class="chip">eks</span><span class="chip">terraform</span><span class="chip">vault</span></div>
+    </article>
+
+    <article class="project">
+      <div class="proj-head">
+        <h3>rag-as-a-service <span>/ production LLM pipeline</span></h3>
+        <span class="diff"><span class="del">-8s latency</span> <span class="add">+380ms p95</span></span>
+      </div>
+      <p>RAG platform serving 50k queries/day. vLLM inference on spot GPUs, Qdrant vector store, semantic caching with Redis. Cut inference cost 60% while improving answer quality.</p>
+      <div class="tags"><span class="chip">vllm</span><span class="chip">qdrant</span><span class="chip">langchain</span><span class="chip">redis</span></div>
+    </article>
+
+    <article class="project">
+      <div class="proj-head">
+        <h3>mlflow-factory <span>/ training infra</span></h3>
+        <span class="diff"><span class="add">+40 experiments/week</span> <span class="del">-0 GPUs idle</span></span>
+      </div>
+      <p>Self-service training platform on Kubeflow with GPU scheduling, experiment tracking, and automatic model registry → deployment handoff. Data scientists stopped filing infra tickets.</p>
+      <div class="tags"><span class="chip">kubeflow</span><span class="chip">mlflow</span><span class="chip">pytorch</span><span class="chip">gke</span></div>
+    </article>
+
+    <article class="project">
+      <div class="proj-head">
+        <h3>zero-to-prod <span>/ golden path ci/cd template</span></h3>
+        <span class="diff"><span class="del">-3 days setup</span> <span class="add">+11min to prod</span></span>
+      </div>
+      <p>Opinionated GitHub Actions monorepo template: build, scan, test, sign, deploy — with SBOM and rollback baked in. Now the default for every new service in the org.</p>
+      <div class="tags"><span class="chip">github actions</span><span class="chip">trivy</span><span class="chip">cosign</span><span class="chip">helm</span></div>
+    </article>
+  </section>
+
+  <!-- numbers -->
+  <section id="numbers">
+    <div class="sec-label">by_the_numbers</div>
+    <h2>Uptime is a personality trait.</h2>
+    <div class="stats">
+      <div class="stat"><div class="num">99.98%</div><div class="cap">uptime maintained</div></div>
+      <div class="stat"><div class="num">200+</div><div class="cap">pipelines shipped</div></div>
+      <div class="stat"><div class="num">60%</div><div class="cap">infra cost reduced</div></div>
+      <div class="stat"><div class="num">15+</div><div class="cap">models in prod</div></div>
+    </div>
+  </section>
+
+  <!-- contact -->
+  <section id="contact">
+    <div class="sec-label">contact</div>
+    <h2>Ping me. Response time &lt; my p95.</h2>
+    <div class="term">
+      <div class="term-bar"><i></i><i></i><i></i></div>
+      <div class="term-body">
+        <div class="row"><span class="prompt-user">purvesh@dev</span>:<span class="prompt-path">~</span>$ curl hello.world</div>
+        <div class="row">&nbsp;</div>
+        <div class="row">→ email&nbsp;&nbsp;&nbsp;: <a href="mailto:hello@purveshshende.dev">hello@purveshshende.dev</a></div>
+        <div class="row">→ github&nbsp;&nbsp;: <a href="https://github.com/purveshshende" target="_blank" rel="noopener">github.com/purveshshende</a></div>
+        <div class="row">→ linkedin : <a href="https://linkedin.com/in/purveshshende" target="_blank" rel="noopener">in/purveshshende</a></div>
+        <div class="row">→ twitter/x: <a href="https://x.com/purveshshende" target="_blank" rel="noopener">@purveshshende</a></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="sticker-wrap">
+      <img class="foot-sticker" src="assets/sticker.png" alt="" width="300" height="284">
+      <div class="callout" id="callout-links" role="status" aria-live="polite"></div>
+    </div>
+    <div class="foot-tag">automate everything. ship intelligence.</div>
+    <div class="foot-prompt">~/purvesh ❯ exit<span class="cursor" style="width:0.5em;height:0.9em;"></span></div>
+    <div class="foot-links">
+      built with zero frameworks · © 2026 Purvesh Shende
+      <span class="dot">·</span><a href="#">rss</a>
+      <span class="dot">·</span><a href="#">source</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const btn = document.getElementById('theme-btn');
+  function setTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    btn.textContent = t === 'light' ? '● dark mode' : '☀ light mode';
+    localStorage.setItem('theme', t);
+  }
+  function toggleTheme() {
+    const cur = document.documentElement.getAttribute('data-theme');
+    setTheme(cur === 'light' ? 'dark' : 'light');
+  }
+  const saved = localStorage.getItem('theme');
+  if (saved) setTheme(saved);
+
+  // ---------- sticker callout ----------
+  (() => {
+    const sticker = document.querySelector('.hero .sticker');
+    const callout = document.getElementById('callout');
+    let clicks = 0, hideTimer = null;
+    sticker.addEventListener('click', () => {
+      clicks++;
+      callout.textContent = clicks === 1 ? 'Hello Visitor' : `Hello Visitor x${clicks}`;
+      callout.classList.remove('show');
+      void callout.offsetWidth;
+      callout.classList.add('show');
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(() => callout.classList.remove('show'), 1800);
+    });
+  })();
+
+  // ---------- footer sticker callout ----------
+  (() => {
+    const sticker = document.querySelector('.foot-sticker');
+    const callout = document.getElementById('callout-links');
+    const links = document.querySelector('.foot-links');
+    let hideTimer = null;
+    sticker.addEventListener('click', () => {
+      callout.textContent = 'Checkout Links';
+      callout.classList.remove('show');
+      void callout.offsetWidth;
+      callout.classList.add('show');
+      links.classList.add('pulse');
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(() => {
+        callout.classList.remove('show');
+        links.classList.remove('pulse');
+      }, 1800);
+    });
+  })();
+
+  // ---------- copy on select ----------
+  (() => {
+    let timer = null, last = '', toastTimer = null;
+    const toast = document.getElementById('copy-toast');
+    document.addEventListener('selectionchange', () => {
+      clearTimeout(timer);
+      timer = setTimeout(async () => {
+        const sel = document.getSelection();
+        const text = sel ? sel.toString().trim() : '';
+        if (!text || text === last) return;
+        last = text;
+        try {
+          await navigator.clipboard.writeText(text);
+          toast.classList.add('show');
+          clearTimeout(toastTimer);
+          toastTimer = setTimeout(() => toast.classList.remove('show'), 1200);
+        } catch (e) { /* clipboard unavailable outside secure context */ }
+      }, 250);
+    }, { passive: true });
+  })();
+
+  // ---------- particles ----------
+  (() => {
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d', { alpha: true });
+    let W, H, parts = [], mx = 0.5, my = 0.5;
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let dark = document.documentElement.getAttribute('data-theme') !== 'light';
+
+    new MutationObserver(() => {
+      dark = document.documentElement.getAttribute('data-theme') !== 'light';
+      if (reduced) draw(0);
+    }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+    function resize() {
+      const dpr = Math.min(devicePixelRatio || 1, 2);
+      W = innerWidth; H = innerHeight;
+      canvas.width = W * dpr; canvas.height = H * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const n = Math.min(90, Math.round(W * H / 16000));
+      parts = Array.from({ length: n }, () => ({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        vx: (Math.random() - .5) * .22,
+        vy: (Math.random() - .5) * .16 - .03,
+        r: .6 + Math.random() * 1.3,
+        a: .12 + Math.random() * .38,
+        ph: Math.random() * 6.28,
+        sp: .4 + Math.random() * .8,
+        depth: .3 + Math.random() * .7,
+        green: Math.random() < .16
+      }));
+      if (reduced) draw(0);
+    }
+
+    addEventListener('resize', resize, { passive: true });
+    addEventListener('mousemove', e => { mx = e.clientX / W; my = e.clientY / H; }, { passive: true });
+
+    function draw(t) {
+      ctx.clearRect(0, 0, W, H);
+      const ox = mx - .5, oy = my - .5;
+      for (const p of parts) {
+        const tw = .55 + .45 * Math.sin(t * .001 * p.sp + p.ph);
+        const alpha = p.a * tw;
+        if (alpha <= 0.01) continue;
+        ctx.beginPath();
+        ctx.fillStyle = p.green
+          ? (dark ? `rgba(74,222,128,${alpha})` : `rgba(22,163,74,${alpha})`)
+          : (dark ? `rgba(232,232,232,${alpha})` : `rgba(20,20,20,${alpha})`);
+        ctx.arc(p.x - ox * 26 * p.depth, p.y - oy * 26 * p.depth, p.r, 0, 6.283);
+        ctx.fill();
+      }
+    }
+
+    let rafId = null;
+    function loop(t) {
+      for (const p of parts) {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < -8) p.x = W + 8; else if (p.x > W + 8) p.x = -8;
+        if (p.y < -8) p.y = H + 8; else if (p.y > H + 8) p.y = -8;
+      }
+      draw(t);
+      rafId = requestAnimationFrame(loop);
+    }
+
+    if (!reduced) {
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) cancelAnimationFrame(rafId);
+        else rafId = requestAnimationFrame(loop);
+      }, { passive: true });
+      rafId = requestAnimationFrame(loop);
+    }
+
+    resize();
+  })();
+
+  // subtle fade-in on scroll
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.style.opacity = 1; e.target.style.transform = 'none'; obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('section > *, .project, .card, .stat').forEach(el => {
+    el.style.opacity = 0;
+    el.style.transform = 'translateY(14px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    obs.observe(el);
+  });
+</script>
+
+</body>
+</html>
