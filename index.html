@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Purvesh Shende — DevOps &amp; AI Engineer</title>
-<meta name="description" content="Purvesh Shende — DevOps Engineer & AI Engineer. Automating infrastructure, shipping intelligent systems.">
+<title>Purvesh Shende — Cloud & DevOps Engineer</title>
+<meta name="description" content="Purvesh Shende — Cloud & DevOps Engineer. Cloud infrastructure, automation & AI agents.">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <style>
@@ -233,7 +233,6 @@
     font-size: 13px;
     margin-bottom: 10px;
   }
-  .sec-label::before { content: "# "; }
 
   h2 {
     font-size: clamp(22px, 4vw, 30px);
@@ -286,49 +285,36 @@
   }
   .chip:hover { color: var(--accent); border-color: var(--accent); }
 
-  /* ---------- projects ---------- */
-  .project {
+  /* ---------- journey / work ---------- */
+  .role {
     border: 1px solid var(--border);
     border-radius: 10px;
-    padding: 24px;
+    padding: 20px 24px;
     margin-bottom: 16px;
     background: var(--bg-soft);
     transition: border-color 0.2s;
   }
-  .project:hover { border-color: var(--accent); }
+  .role:hover { border-color: var(--accent); }
 
-  .proj-head {
+  .role-head {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
     gap: 12px;
     flex-wrap: wrap;
+    margin-bottom: 8px;
   }
 
-  .project h3 { font-size: 16px; font-weight: 600; }
-  .project h3 span { color: var(--muted); font-weight: 400; }
+  .role h3 { font-size: 16px; font-weight: 600; }
+  .role h3 span { color: var(--muted); font-weight: 400; }
 
-  .diff {
-    font-size: 12px;
+  .dates {
+    font-size: 13px;
+    color: var(--accent);
     white-space: nowrap;
   }
-  .add { color: var(--accent); }
-  .del { color: #f87171; }
 
-  .project p { color: var(--muted); font-size: 14px; margin: 10px 0 14px; max-width: 620px; }
-
-  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
-
-  /* ---------- numbers / uptime ---------- */
-  .stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 16px;
-  }
-
-  .stat { text-align: left; padding: 18px 20px; border-left: 2px solid var(--accent); background: var(--accent-dim); border-radius: 0 8px 8px 0; }
-  .stat .num { font-size: 30px; font-weight: 700; letter-spacing: -1px; }
-  .stat .cap { color: var(--muted); font-size: 12px; margin-top: 2px; }
+  .role p { color: var(--muted); font-size: 14px; margin-top: 6px; max-width: 620px; }
 
   /* ---------- contact ---------- */
   .term {
@@ -412,23 +398,16 @@
     </div>
     <div class="label">$ whoami</div>
     <h1 class="name">Purvesh Shende<span class="cursor"></span></h1>
-    <p class="tagline">DevOps Engineer × <em>AI Engineer</em>.<br>I automate everything — then teach it to think.</p>
-    <p class="sub">pipelines, clusters &amp; models. shipped from a terminal near you.</p>
-    <div class="cta-row">
-      <a class="tbtn" href="mailto:hello@purveshshende.dev"><span class="dollar">$</span>contact --now</a>
-      <a class="tbtn" href="#work"><span class="dollar">$</span>cat work.md</a>
-      <a class="tbtn" href="https://github.com/purveshshende" target="_blank" rel="noopener"><span class="dollar">$</span>open github</a>
-      <a class="tbtn" href="#" target="_blank" rel="noopener"><span class="dollar">$</span>get resume.pdf</a>
-    </div>
+    <p class="tagline">Cloud & DevOps Engineer × <em>AI Engineer</em>.<br>I automate infrastructure — then teach it to think.</p>
   </div>
 
   <!-- about -->
   <section id="about" class="about">
     <div class="sec-label">whoami</div>
-    <h2>Machines deploy themselves. I make sure they do it right.</h2>
-    <p><strong>DevOps side:</strong> I build CI/CD pipelines, tame Kubernetes clusters, codify infrastructure with Terraform, and keep observability honest. If it can be automated, it will be.</p>
-    <p><strong>AI side:</strong> I take models out of notebooks and into production — LLM pipelines, RAG systems, fine-tuning workflows, and GPU infrastructure that doesn't melt.</p>
-    <p>The overlap is where I live: <span class="hl">MLOps</span>, model serving at scale, and infra for teams that ship ML fast without breaking prod.</p>
+    <h2>Cloud, AiOps & DevOps Engineer.</h2>
+    <p><strong>Cloud & DevOps side:</strong> I implement and manage cloud infrastructure and automation processes. Proficient in AWS and Azure, with a strong focus on optimizing performance and ensuring security compliance.</p>
+    <p><strong>AI side:</strong> I build AI agents and AIOps systems — Claude Code, Opencode, Codex integration, vLLM, Langchain, Langgraph, RAG, and Wiz for vulnerability automation.</p>
+    <p>The overlap is where I live: <span class="hl">cloud infrastructure, automation & AI agents</span> that deliver robust solutions and enhance operational efficiency.</p>
   </section>
 
   <!-- stack -->
@@ -437,91 +416,98 @@
     <h2>Tools I reach for first.</h2>
     <div class="stack-grid">
       <div class="card">
-        <h3>devops &amp; cloud</h3>
+        <h3>cloud & iac</h3>
         <div class="chips">
-          <span class="chip">kubernetes</span><span class="chip">docker</span><span class="chip">terraform</span>
-          <span class="chip">aws</span><span class="chip">gcp</span><span class="chip">ansible</span>
-          <span class="chip">linux</span><span class="chip">helm</span><span class="chip">nginx</span>
+          <span class="chip">aws</span><span class="chip">azure</span><span class="chip">gcp</span><span class="chip">digital ocean</span>
+          <span class="chip">terraform</span><span class="chip">cloudformation</span><span class="chip">pulumi</span>
+          <span class="chip">dns</span><span class="chip">load balancers</span><span class="chip">cloudflare</span>
         </div>
       </div>
       <div class="card">
-        <h3>cicd &amp; reliability</h3>
+        <h3>devops & cicd</h3>
         <div class="chips">
-          <span class="chip">github actions</span><span class="chip">gitlab ci</span><span class="chip">argocd</span>
-          <span class="chip">prometheus</span><span class="chip">grafana</span><span class="chip">loki</span>
-          <span class="chip">istio</span><span class="chip">vault</span>
+          <span class="chip">jenkins</span><span class="chip">git</span><span class="chip">docker</span><span class="chip">kubernetes</span>
+          <span class="chip">ansible</span><span class="chip">github actions</span><span class="chip">azure devops</span>
+          <span class="chip">argocd</span><span class="chip">gitops</span>
         </div>
       </div>
       <div class="card">
-        <h3>ai &amp; ml</h3>
+        <h3>ai & mlops</h3>
         <div class="chips">
-          <span class="chip">python</span><span class="chip">pytorch</span><span class="chip">langchain</span>
-          <span class="chip">llama-index</span><span class="chip">openai api</span><span class="chip">huggingface</span>
-          <span class="chip">vllm</span><span class="chip">ray</span>
+          <span class="chip">python</span><span class="chip">claude code</span><span class="chip">opencode</span><span class="chip">codex</span>
+          <span class="chip">vllm</span><span class="chip">langchain</span><span class="chip">langgraph</span>
+          <span class="chip">rag</span><span class="chip">ollama</span><span class="chip">aws bedrock</span>
         </div>
       </div>
       <div class="card">
-        <h3>mlops &amp; data</h3>
+        <h3>data & observability</h3>
         <div class="chips">
-          <span class="chip">mlflow</span><span class="chip">kubeflow</span><span class="chip">airflow</span>
-          <span class="chip">postgres</span><span class="chip">redis</span><span class="chip">kafka</span>
-          <span class="chip">qdrant</span><span class="chip">weaviate</span>
+          <span class="chip">snowflake</span><span class="chip">mongodb</span><span class="chip">prometheus</span><span class="chip">grafana</span>
+          <span class="chip">new relic</span><span class="chip">dynatrace</span><span class="chip">datadog</span><span class="chip">elastic</span>
+          <span class="chip">wiz</span><span class="chip">automox</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- projects -->
-  <section id="work">
-    <div class="sec-label">selected_work</div>
-    <h2>Things I've built and broken (then fixed).</h2>
+  <!-- journey -->
+  <section id="journey">
+    <div class="sec-label">journey</div>
+    <h2>Journey for professional roles.</h2>
 
-    <article class="project">
-      <div class="proj-head">
-        <h3>gitops-platform <span>/ multi-cluster delivery</span></h3>
-        <span class="diff"><span class="del">-1200 manual deploys</span> <span class="add">+1 push to prod</span></span>
+    <div class="role">
+      <div class="role-head">
+        <h3>AiOps / Devops Engineer <span>/ Norstella</span></h3>
+        <span class="dates">aug 26 – present</span>
       </div>
-      <p>Full GitOps setup with ArgoCD across 3 EKS clusters. Progressive delivery via Argo Rollouts, secrets through Vault, drift detection on every merge. Deploys went from hours to minutes.</p>
-      <div class="tags"><span class="chip">argocd</span><span class="chip">eks</span><span class="chip">terraform</span><span class="chip">vault</span></div>
-    </article>
+    </div>
 
-    <article class="project">
-      <div class="proj-head">
-        <h3>rag-as-a-service <span>/ production LLM pipeline</span></h3>
-        <span class="diff"><span class="del">-8s latency</span> <span class="add">+380ms p95</span></span>
+    <div class="role">
+      <div class="role-head">
+        <h3>Devops Engineer <span>/ Norstella</span></h3>
+        <span class="dates">aug 25 – aug 26</span>
       </div>
-      <p>RAG platform serving 50k queries/day. vLLM inference on spot GPUs, Qdrant vector store, semantic caching with Redis. Cut inference cost 60% while improving answer quality.</p>
-      <div class="tags"><span class="chip">vllm</span><span class="chip">qdrant</span><span class="chip">langchain</span><span class="chip">redis</span></div>
-    </article>
+    </div>
 
-    <article class="project">
-      <div class="proj-head">
-        <h3>mlflow-factory <span>/ training infra</span></h3>
-        <span class="diff"><span class="add">+40 experiments/week</span> <span class="del">-0 GPUs idle</span></span>
+    <div class="role">
+      <div class="role-head">
+        <h3>Devops Engineer <span>/ EVIDEN</span></h3>
+        <span class="dates">aug 2023 – aug 25</span>
       </div>
-      <p>Self-service training platform on Kubeflow with GPU scheduling, experiment tracking, and automatic model registry → deployment handoff. Data scientists stopped filing infra tickets.</p>
-      <div class="tags"><span class="chip">kubeflow</span><span class="chip">mlflow</span><span class="chip">pytorch</span><span class="chip">gke</span></div>
-    </article>
+    </div>
 
-    <article class="project">
-      <div class="proj-head">
-        <h3>zero-to-prod <span>/ golden path ci/cd template</span></h3>
-        <span class="diff"><span class="del">-3 days setup</span> <span class="add">+11min to prod</span></span>
+    <div class="role">
+      <div class="role-head">
+        <h3>Cloud Engineer <span>/ ATOS</span></h3>
+        <span class="dates">apr 2023 – aug 2023</span>
       </div>
-      <p>Opinionated GitHub Actions monorepo template: build, scan, test, sign, deploy — with SBOM and rollback baked in. Now the default for every new service in the org.</p>
-      <div class="tags"><span class="chip">github actions</span><span class="chip">trivy</span><span class="chip">cosign</span><span class="chip">helm</span></div>
-    </article>
-  </section>
+    </div>
 
-  <!-- numbers -->
-  <section id="numbers">
-    <div class="sec-label">by_the_numbers</div>
-    <h2>Uptime is a personality trait.</h2>
-    <div class="stats">
-      <div class="stat"><div class="num">99.98%</div><div class="cap">uptime maintained</div></div>
-      <div class="stat"><div class="num">200+</div><div class="cap">pipelines shipped</div></div>
-      <div class="stat"><div class="num">60%</div><div class="cap">infra cost reduced</div></div>
-      <div class="stat"><div class="num">15+</div><div class="cap">models in prod</div></div>
+    <div class="role">
+      <div class="role-head">
+        <h3>Cloud Engineer <span>/ ATOS</span></h3>
+        <span class="dates">jul 2022 – apr 2023</span>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <h3>Web Developer / Electrical Engineer Intern <span>/ Capstone</span></h3>
+        <span class="dates">nov 2021 – jun 2022</span>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <h3>Freelancer</h3>
+        <span class="dates">web dev</span>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <h3>Community Manager <span>/ GDG (Google Developer Group)</span></h3>
+      </div>
     </div>
   </section>
 
@@ -534,10 +520,9 @@
       <div class="term-body">
         <div class="row"><span class="prompt-user">purvesh@dev</span>:<span class="prompt-path">~</span>$ curl hello.world</div>
         <div class="row">&nbsp;</div>
-        <div class="row">→ email&nbsp;&nbsp;&nbsp;: <a href="mailto:hello@purveshshende.dev">hello@purveshshende.dev</a></div>
+        <div class="row">→ email&nbsp;&nbsp;&nbsp;: <a href="mailto:purveshshende1@gmail.com">purveshshende1@gmail.com</a></div>
         <div class="row">→ github&nbsp;&nbsp;: <a href="https://github.com/purveshshende" target="_blank" rel="noopener">github.com/purveshshende</a></div>
         <div class="row">→ linkedin : <a href="https://linkedin.com/in/purveshshende" target="_blank" rel="noopener">in/purveshshende</a></div>
-        <div class="row">→ twitter/x: <a href="https://x.com/purveshshende" target="_blank" rel="noopener">@purveshshende</a></div>
       </div>
     </div>
   </section>
@@ -713,7 +698,7 @@
     });
   }, { threshold: 0.08 });
 
-  document.querySelectorAll('section > *, .project, .card, .stat').forEach(el => {
+  document.querySelectorAll('section > *, .role, .card').forEach(el => {
     el.style.opacity = 0;
     el.style.transform = 'translateY(14px)';
     el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
